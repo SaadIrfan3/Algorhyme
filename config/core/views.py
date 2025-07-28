@@ -5,6 +5,9 @@ from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
+def home_view(request):
+    return render(request,'core/home.html')
 
 @csrf_exempt
 def signup_user(request):
@@ -43,9 +46,6 @@ def login_user(request):
 def get_profile(request):
     return JsonResponse({'message': 'your profiless'})
     
-@csrf_exempt
-def home_view(request):
-    return render(request,'core/home.html')
 
 @csrf_exempt
 def gameroom_view(request):
